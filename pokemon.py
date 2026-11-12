@@ -1,17 +1,17 @@
 import json
 pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
-
-for pokemon in data:
+def search_pokemon():
     language = input("what language would you like to print: english, french, chinese, or japanese?: ")
-    if language == 'english':
-        print(data['name']['english'])
-    if language == 'french':
-        print(data['name']['french'])
-    if language == 'japanese':
-        print(data['name']['japanese'])
-    if language == 'chinese':
-        print(data['name']['chinese'])
+    for pokemon in data:
+        if language == 'english':
+            print(pokemon['name']['english'])
+        if language == 'french':
+            print(pokemon['name']['french'])
+        if language == 'japanese':
+            print(pokemon['name']['japanese'])
+        if language == 'chinese':
+            print(pokemon['name']['chinese'])
 
 # Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
 # Add a language choice feature +nd print the pokemons name based on the user input
