@@ -10,12 +10,13 @@ def print_pokemon():
             print("invalid language given")
 print_pokemon()
 def search_pokemon():
-    pokemon = int(input("what pokemon would you like to find the name of? print the id: "))
+    id = int(input("what pokemon would you like to find the name of? print the id: "))
     if id in (data):
-        print (pokemon['id']['name'][language])
+        print ([id]['id']['name'][language])
     else:
         print ("invalid id")
 search_pokemon()
+# Create a function that will take the data from the JSON file and you will iterate through the list of pokemon and print each pokemons name.
 # Add a language choice feature +nd print the pokemons name based on the user input
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
