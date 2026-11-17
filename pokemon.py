@@ -1,7 +1,7 @@
 import json
 pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
-language = input("what language would you like to print: english, french, chinese, or japanese?: ")
+language = input("what language would you like to print: english, french, chinese, or japanese?: ").lower()
 def print_pokemon():
     for pokemon in data:
         if language in pokemon['name']:
@@ -11,8 +11,14 @@ def print_pokemon():
             break
 print_pokemon()
 def search_pokemon():
-    id = int(input("what pokemon would you like to find the name of? print the id: "))
-    print (data[id-1]['name'][language])
+    user_input = 0
+    while user_input == 0:
+        id = int(input("what pokemon would you like to find the name of? print the id: "))
+        if 1 > id or 809 < id:
+            print ("that is not a valid id, try again")
+        else:
+            print (data[id-1]['name'][language])
+            user_input += 1
 search_pokemon()
 def pokemon_types():
     type = input ("what type of pokemon would you like to find?")
