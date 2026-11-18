@@ -30,7 +30,9 @@ def pokemon_types():
 pokemon_types()
 def name_finding():
     name = input("what pokemon would you like to find?: ")
-     
+    matches = {k: v for k, v in name.items() if name in k.lower()}
+    print(matches)
+name_finding()
 def pokemon_moves():
     types = input("what type of moves would you like to find?: ")
     for pokemon in data2:
