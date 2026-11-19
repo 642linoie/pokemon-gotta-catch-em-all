@@ -23,22 +23,19 @@ def search_pokemon():
             user_input += 1
 search_pokemon()
 def pokemon_types():
-    type = input ("what type of pokemon would you like to find?")
+    type = input ("what type of pokemon would you like to find?") 
     for pokemon in data:
         if type in pokemon['type']:
             print (pokemon['name'][language])
+    for pokemon in data2:
+        if type in pokemon['type']:
+            print (f"{pokemon['accuracy']}, {pokemon['ename']}, {pokemon['power']}")
 pokemon_types()
+
 def name_finding():
     name = input("what pokemon would you like to find?: ")
-    matches = {k: v for k, v in name.items() if name in k.lower()}
-    print(matches)
-name_finding()
-def pokemon_moves():
-    types = input("what type of moves would you like to find?: ")
-    for pokemon in data2:
-        if types in pokemon['type']:
-            print (pokemon['accuracy'], ['ename'], ['power'])
-pokemon_moves()
+    for pokwmon in data:
+    
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
 #Develop a function to find all pokemon matching the name the user searched for. Ex. if "Char" return Charmander, Charmeleon and Charizard. Make the user aware if no pokemon was found. 
 #Based on user input, show all moves that a pokemon could learn based on their type. For example, if Charizard is fire/fyling, show all fire and flying moves. HINT import the moves.json file to
