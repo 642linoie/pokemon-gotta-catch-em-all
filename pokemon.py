@@ -1,4 +1,5 @@
 import json
+import time
 pokedex = open("./pokedex.json", encoding="utf8")
 data = json.load(pokedex)
 moves = open("./moves.json", encoding="utf8")
@@ -23,19 +24,28 @@ def search_pokemon():
             user_input += 1
 search_pokemon()
 def pokemon_types():
-    type = input ("what type of pokemon would you like to find?").capitalize()
-    for pokemon in data:
-        if type in pokemon['type']:
-            print (pokemon['name'][language])
+    type = input ("what type of pokemon would you like to find?: ").capitalize()
+    unprinted = True
+    while unprinted == True:
+        for pokemon in data:
+            if type in pokemon['type']:
+                print (pokemon['name'][language])
+    if type != pokemon['type']:
+        print ("that is not a valid type, please try again")
+    else:
+            unprinted = False
+    print ("here are the moves that these pokemon can learn: ")
+    time.sleep(1)
     for pokemon in data2:
         if type in pokemon['type']:
             print (f"{pokemon['accuracy']}, {pokemon['ename']}, {pokemon['power']}")
 pokemon_types()
 def pokemon_search():
-    search = input ("what pokemon would you like to find?").capitalize()
+    search = input ("what pokemon would you like to find?: ").capitalize()
+    matches = [pokemon for pokemon in data if search.lower() in pokemon["name"].lower()]
     for pokemon in data:
         if search in pokemon['name']:
-            print (pokemon['name'][language])
+            print (matches)
 pokemon_search()
 
 # Develop a function that creates a new list of pokemon based on the type the user searched for. If no pokemon was found of that type inform the user
