@@ -1,2 +1,3 @@
 
 x = "test"
+x.lower()

@@ -5,6 +5,7 @@ data = json.load(pokedex)
 moves = open("./moves.json", encoding="utf8")
 data2 = json.load(moves)
 language = input("what language would you like to print: english, french, chinese, or japanese?: ").lower()
+
 def print_pokemon():
     for pokemon in data:
         if language in pokemon['name']:
@@ -24,17 +25,20 @@ print_pokemon()
 #             user_input += 1
 # search_pokemon()
 def pokemon_types():
-    type = input ("what type of pokémon would you like to find?: ").capitalize()
+    
     found = False
     while found == False:
+        type = input ("what type of pokémon would you like to find?: ").capitalize()
         for pokemon in data:
             if type in pokemon['type']:
                 print (pokemon['name'][language])
                 found = True
-            else:
-                found == False
-        time.sleep(4)
+        if found == False:
+            found = False
+            print ("that is an invalid type")
+        time.sleep(2)
     print ("here are the moves that these pokémon can learn: ")
+    time.sleep(2)
     for pokemon in data2:
         if type in pokemon['type']:
             print (f"{pokemon['accuracy']}, {pokemon['ename']}, {pokemon['power']}")
